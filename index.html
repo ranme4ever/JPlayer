@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test KKPlayer</title>
+    <script data-main="main.js"  src="js/lib/require.js"></script>
+
+</head>
+<style>
+    .player{
+        margin:0 auto;
+        background-color:#4b4b4b;
+        margin-top:100px;
+        text-align:center;
+    }
+</style>
+<script type="text/javascript">
+require(["js/KKPlayer"],function(KKPlayer){
+    divNode = document.getElementById("player")
+    this.player  = new KKPlayer(divNode)
+})
+function playflv(file){
+    this.player.setup({
+        file:file
+    })
+    this.player.play()
+}
+
+</script>
+<body >
+     <div id="player" class="player"
+          width="640" height="368"
+          workers="false" render="true" webgl="auto">
+     </div>
+     <div id="board">
+         <button onclick="playflv('tree.flv')">tree.flv</button>
+     </div>
+</body>
+</html>
